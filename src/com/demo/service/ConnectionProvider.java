@@ -1,6 +1,7 @@
 package com.demo.service;
 import java.io.File;
 import java.io.FileInputStream;
+import java.nio.file.Paths;
 import java.sql.*;
 import java.util.Properties;
 
@@ -29,7 +30,8 @@ public class ConnectionProvider{
 	private static void getCredentials() {
 		try {
 			Properties prop = new Properties();
-			prop.load(new FileInputStream("credentials.txt"));//getPath()));
+			//System.out.println(Paths.get(""));
+			prop.load(new FileInputStream( getPath()));
 			Connection_URL = prop.getProperty("DB_URL");
 			Username = prop.getProperty("Username");
 			Password = prop.getProperty("Passwd");
@@ -47,13 +49,16 @@ public class ConnectionProvider{
 		String homepath = null;
 		String projectPath =null;
 		String fileName = null;
-		homepath = System.getProperty("user.home") + File.separator+ "Documents";
+		homepath = System.getProperty("user.home");
 		fileName = "credentials.txt";
 		if (System.getProperty("os.name").contains("Windows")){
-			projectPath = "Github"+ File.separator + "javarepo" +
+			projectPath = File.separator+ "Documents"+File.separator + "Github"+ File.separator + "javarepo" +
 						   File.separator + "Helloweb" ;
-		}else{
-			projectPath = "github"+ File.separator + "javarepo" +
+		}else if (System.getProperty("os.name").contains("Cent")){
+			projectPath = File.separator ;
+		}
+		else{
+			projectPath = File.separator+ "Documents" + File.separator + "github"+ File.separator + "javarepo" +
 					   File.separator + "Helloweb" ;
 		}
 		result = homepath + File.separator +projectPath+ File.separator + fileName;
