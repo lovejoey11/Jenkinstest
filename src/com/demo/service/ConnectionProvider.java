@@ -29,7 +29,7 @@ public class ConnectionProvider{
 	private static void getCredentials() {
 		try {
 			Properties prop = new Properties();
-			prop.load(new FileInputStream(getPath()));
+			prop.load(new FileInputStream("credentials.txt"));//getPath()));
 			Connection_URL = prop.getProperty("DB_URL");
 			Username = prop.getProperty("Username");
 			Password = prop.getProperty("Passwd");
