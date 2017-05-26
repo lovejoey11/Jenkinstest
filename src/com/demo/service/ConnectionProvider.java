@@ -54,11 +54,11 @@ public class ConnectionProvider{
 		if (System.getProperty("os.name").contains("Windows")){
 			projectPath = File.separator+ "Documents"+File.separator + "Github"+ File.separator + "javarepo" +
 						   File.separator + "Helloweb" ;
-		}else if (System.getProperty("os.name").contains("Cent")){
+		}else if (System.getProperty("os.name").contains("nix")){
 			projectPath = File.separator ;
 		}
 		else{
-			projectPath = File.separator+ "Documents" + File.separator + "github"+ File.separator + "javarepo" +
+			projectPath = File.separator+ "Documents" + File.separator + "github" + File.separator + "javarepo" +
 					   File.separator + "Helloweb" ;
 		}
 		result = homepath + File.separator +projectPath+ File.separator + fileName;
