@@ -1,6 +1,7 @@
 package com.demo.service;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.nio.file.Paths;
 import java.sql.*;
 import java.util.Properties;
@@ -12,6 +13,7 @@ public class ConnectionProvider{
 	private static String Connection_URL = null;
 	private static String Username = null;
 	private static String Password = null;
+	private static InputStream input = null;
 	
 	static{
 		try{
@@ -30,8 +32,16 @@ public class ConnectionProvider{
 	private static void getCredentials() {
 		try {
 			Properties prop = new Properties();
-			//System.out.println(Paths.get(""));
-			prop.load(new FileInputStream( getPath()));
+			String filename="config.properties";
+			input = ConnectionProvider.class.getClassLoader().getResourceAsStream(filename);
+    		if(input==null){
+    	            System.out.println("Sorry, unable to find " + filename);
+    		    return;
+    		}
+    		//load a properties file from class path, inside static method
+    		
+    		prop.load(input);
+			//prop.load(new FileInputStream( "/src/" ));
 			Connection_URL = prop.getProperty("DB_URL");
 			Username = prop.getProperty("Username");
 			Password = prop.getProperty("Passwd");
@@ -54,7 +64,7 @@ public class ConnectionProvider{
 		if (System.getProperty("os.name").contains("Windows")){
 			projectPath = File.separator+ "Documents"+File.separator + "Github"+ File.separator + "javarepo" +
 						   File.separator + "Helloweb" ;
-		}else if (System.getProperty("os.name").contains("nix")){
+		}else if (System.getProperty("os.name").contains("Linux")){
 			projectPath = File.separator ;
 		}
 		else{

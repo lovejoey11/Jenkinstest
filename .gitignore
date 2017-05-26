@@ -1,5 +1,5 @@
 /build/
 /target/
 /Users/
-/WebContent/credentials.txt
+/src/config.properties
 /.README.md.html

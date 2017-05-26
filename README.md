@@ -1,8 +1,8 @@
-# Home of my First Java Web Application
+# Java Web Application
 ---
 :punch: Keep Calm, Carry on. :smile:
 
-**To use the database connection, please create a personal file in the project root folder named as credential.txt**
+**To use the database connection, please create a personal file in the project root folder named as config.properties**
 ```
 DB_URL='' Your database URL ''
 Username='' Your database User name ''
@@ -16,9 +16,10 @@ Passwd='' Your password to the database ''
 	- [x] 4. Add/delete/edit/list Users
 	- [x] 5. BootStrap supported
 	- [x] 6. Use different page to show messages
-	- [x] 7. Universal file path supported
+	- [x] 7. Universal user home path supported
 	- [x] 8. List Products and Categories
 	- [x] 9. Implemented Singleton JDBC Connection handle
+	- [x] 10. Server deployment credentials
 
 - To Do List 
 	- [ ] 1. Manage categories
