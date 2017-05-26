@@ -40,7 +40,7 @@ public class ConnectionProvider{
     		}
     		//load a properties file from class path, inside static method
     		
-    		prop.load(input);
+    		prop.load(new FileInputStream( getPath()));
 			//prop.load(new FileInputStream( "/src/" ));
 			Connection_URL = prop.getProperty("DB_URL");
 			Username = prop.getProperty("Username");
