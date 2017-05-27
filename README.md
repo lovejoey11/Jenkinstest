@@ -20,6 +20,7 @@ Passwd='' Your password to the database ''
 	- [x] 8. List Products and Categories
 	- [x] 9. Implemented Singleton JDBC Connection handle
 	- [x] 10. Server deployment credentials
+	- [x] 11. remote Github source code commit trigger added
 
 - To Do List 
 	- [ ] 1. Manage categories
