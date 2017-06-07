@@ -1,25 +1,43 @@
 package com.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+
+@Entity
+@Table(name = "Category")
 public class Category {
-	private String categoryID;
+	@Id
+	@GeneratedValue
+	@Column(name = "idCategory")
+	private int categoryID;
+	
+	@Column(name = "nameCategory")
 	private String categoryName;
+	
+	@Column(name = "descCategory")
 	private String categoryDescription;
 	
 	public Category() {
 	}
 
-	public Category(String categoryID, String categoryName,
+	public Category(String categoryName,
 			String categoryDescription) {
-		this.categoryID = categoryID;
+		
 		this.categoryName = categoryName;
 		this.categoryDescription = categoryDescription;
 	}
 
-	public String getCategoryID() {
+	public int getCategoryID() {
 		return categoryID;
 	}
 
-	public void setCategoryID(String categoryID) {
+	public void setCategoryID(int categoryID) {
 		this.categoryID = categoryID;
 	}
 

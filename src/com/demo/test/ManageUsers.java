@@ -10,8 +10,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
-
 import com.demo.model.User;
 
 public class ManageUsers {
@@ -28,7 +26,7 @@ public class ManageUsers {
 			throw new ExceptionInInitializerError(ex);
 		}
 		ManageUsers MP = new ManageUsers();
-//		Integer userID01 = MP.addUser("Yangkai", "Lyu", "Admin", "admin", "admin");
+		Integer userID01 = MP.addUser("bcsusssssser", "bcsusssssser", "User", "ucser1", "user1");
 //		Integer userID02 = MP.addUser("alian", "Rogue", "Guest", "alian", "alian");
 //		Integer userID03 = MP.addUser("Stepth", "Curry", "User", "stepth", "curry");
 	

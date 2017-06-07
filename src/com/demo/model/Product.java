@@ -1,9 +1,27 @@
 package com.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Product")
 public class Product {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "idProduct")
 	private int productId;
+	
+	@Column(name = "nameProduct")
 	private String productName;
+	
+	@Column(name = "descProduct")
 	private String productDescption;
+	
+	@Column(name = "pPrice")
 	private double productPrice;
 	
 	public Product() {

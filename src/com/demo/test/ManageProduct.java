@@ -7,16 +7,17 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
+import org.hibernate.cfg.AnnotationConfiguration;
 import com.demo.model.Product;
+
 
 public class ManageProduct {
 	private static SessionFactory factory;
 	public static void main(String[] args) {
 		try{
-			factory = new Configuration().configure()
-					.buildSessionFactory();
+			factory = new AnnotationConfiguration().
+					configure().addAnnotatedClass(Product.class).
+					buildSessionFactory();
 		}catch(Throwable ex){
 			System.err.println("Fail to create sessionFactory object" + ex);
 			throw new ExceptionInInitializerError(ex);
@@ -56,7 +57,7 @@ public class ManageProduct {
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
-			List products = session.createQuery("From Product").list();
+			List<Product> products = session.createQuery("From Product").list();
 			for (Iterator iterator = 
                     products.iterator(); iterator.hasNext();){
 				Product product = (Product) iterator.next();
