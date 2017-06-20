@@ -32,17 +32,13 @@ public class ConnectionProvider{
 	private static void getCredentials() {
 		try {
 			Properties prop = new Properties();
-			input = new FileInputStream("src/config.properties");
-			prop.load(input);
-//			String filename="config.properties";
-//			input = ConnectionProvider.class.getClassLoader().getResourceAsStream(filename);
-//    		if(input==null){
-//    	            System.out.println("Sorry, unable to find " + filename);
-//    		    return;
-//    		}
-    		//load a properties file from class path, inside static method
-    		
-//    		prop.load(new FileInputStream("credentials.properties"));
+			String filename="config.properties";
+			input = ConnectionProvider.class.getClassLoader().getResourceAsStream(filename);
+    		if(input==null){
+    	            System.out.println("Sorry, unable to find " + filename);
+    		    return;
+    		}
+    		prop.load(input);
 			Connection_URL = prop.getProperty("DB_URL");
 			Username = prop.getProperty("Username");
 			Password = prop.getProperty("Passwd");
@@ -51,28 +47,5 @@ public class ConnectionProvider{
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-	}
-	
-	
-	private static String getPath(){
-		String result=null;
-		
-		String homepath = null;
-		String projectPath =null;
-		String fileName = null;
-		homepath = System.getProperty("user.home");
-		fileName = "credentials.txt";
-		if (System.getProperty("os.name").contains("Windows")){
-			projectPath = File.separator+ "Documents"+File.separator + "Github"+ File.separator + "javarepo" +
-						   File.separator + "Helloweb" ;
-		}else if (System.getProperty("os.name").contains("Linux")){
-			projectPath = File.separator ;
-		}
-		else{
-			projectPath = File.separator+ "Documents" + File.separator + "github" + File.separator + "javarepo" +
-					   File.separator + "Helloweb" ;
-		}
-		result = homepath + File.separator +projectPath+ File.separator + fileName;
-		return result;
 	}
 }
