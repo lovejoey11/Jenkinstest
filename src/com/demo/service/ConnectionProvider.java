@@ -32,16 +32,18 @@ public class ConnectionProvider{
 	private static void getCredentials() {
 		try {
 			Properties prop = new Properties();
-//			String filename="config.properties";
-//			input = ConnectionProvider.class.getClassLoader().getResourceAsStream(filename);
-//    		if(input==null){
-//    	            System.out.println("Sorry, unable to find " + filename);
-//    		    return;
-//    		}
+			String filename="config.properties";
+			input = ConnectionProvider.class.getClassLoader().getResourceAsStream(filename);
+    		if(input==null){
+    	            System.out.println("Sorry, unable to find " + filename);
+    		    return;
+    		}
     		//load a properties file from class path, inside static method
     		
-    		prop.load(new FileInputStream( getPath()));
-			//prop.load(new FileInputStream( "/src/" ));
+//    		prop.load(new FileInputStream( getPath()));
+//			System.out.println(new File(".").getAbsolutePath());
+//			prop.load(new FileInputStream( "classes/config.properties" ));
+    		prop.load(input);
 			Connection_URL = prop.getProperty("DB_URL");
 			Username = prop.getProperty("Username");
 			Password = prop.getProperty("Passwd");
