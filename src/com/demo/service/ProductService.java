@@ -25,8 +25,8 @@ public class ProductService {
 			PreparedStatement ps = con.prepareStatement("SELECT * FROM Store.Product");
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-				Product prod = new Product(rs.getString("idProduct"), rs.getString("nameProduct"), 
-						rs.getString("descProduct"));
+				Product prod = new Product(rs.getString("nameProduct"), 
+						rs.getString("descProduct"), rs.getDouble("pPrice"));
 				list.add(prod);
 			}
 		

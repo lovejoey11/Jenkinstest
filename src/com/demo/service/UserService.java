@@ -42,7 +42,7 @@ public class UserService {
 			PreparedStatement ps = con.prepareStatement("Select * from User.User");
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-				User user = new User(rs.getString("firstname"), rs.getString("lastname"), rs.getString("usergroup"), rs.getString("username"),rs.getString("password"), rs.getInt("userid"));
+				User user = new User(rs.getString("firstname"), rs.getString("lastname"), rs.getString("usergroup"), rs.getString("username"),rs.getString("password"));
 				//System.out.println(user);
 				list.add(user);
 			}

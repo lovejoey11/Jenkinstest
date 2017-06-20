@@ -26,7 +26,7 @@ public class CategoryService {
 			PreparedStatement ps = con.prepareStatement("SELECT * FROM Store.Category");
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-				Category cate = new Category(rs.getString("idCategory"), rs.getString("NameCategory"), 
+				Category cate = new Category(rs.getString("NameCategory"), 
 						rs.getString("DescCategory"));
 				//System.out.println(user);
 				list.add(cate);

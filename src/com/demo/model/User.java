@@ -1,27 +1,48 @@
 package com.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "User")
 public class User {
-	
-	private String firstname;
-	private String lastname;
-	private String usergroup;
-	private String username;
-	private String passwd;
+	@Id
+	@GeneratedValue
+	@Column(name = "userid")
 	private int id;
+	
+	@Column(name = "firstname")
+	private String firstname;
+	
+	@Column(name = "lastname")
+	private String lastname;
+	
+	@Column(name = "usergroup")
+	private String usergroup;
+	
+	@Column(name = "username")
+	private String username;
+	
+	@Column(name = "password")
+	private String passwd;
+	
 	
 	public User(){
 		
 	}
 	
 	public User(String firstname, String lastname, String usergroup,
-			String username, String passwd, int id) {
+			String username, String passwd) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.usergroup = usergroup;
 		this.username = username;
 		this.passwd = passwd;
-		this.id = id;
+		
 	}
 	public String getFirstname() {
 		return firstname;

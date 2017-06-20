@@ -1,24 +1,46 @@
 package com.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Product")
 public class Product {
-	private String productId;
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "idProduct")
+	private int productId;
+	
+	@Column(name = "nameProduct")
 	private String productName;
+	
+	@Column(name = "descProduct")
 	private String productDescption;
+	
+	@Column(name = "pPrice")
+	private double productPrice;
 	
 	public Product() {
 	}
 	
-	public Product(String productId, String productName, String productDescption) {
-		this.productId = productId;
+	public Product(String productName,
+			String productDescption, double productPrice) {
+		super();
+		
 		this.productName = productName;
 		this.productDescption = productDescption;
+		this.productPrice = productPrice;
 	}
 
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
@@ -38,8 +60,11 @@ public class Product {
 		this.productDescption = productDescption;
 	}
 
+	public double getProductPrice() {
+		return productPrice;
+	}
 
-	
-	
-	
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
+	}
 }
