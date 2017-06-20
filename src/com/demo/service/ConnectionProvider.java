@@ -32,6 +32,8 @@ public class ConnectionProvider{
 	private static void getCredentials() {
 		try {
 			Properties prop = new Properties();
+			input = new FileInputStream("src/config.properties");
+			prop.load(input);
 //			String filename="config.properties";
 //			input = ConnectionProvider.class.getClassLoader().getResourceAsStream(filename);
 //    		if(input==null){
@@ -40,8 +42,7 @@ public class ConnectionProvider{
 //    		}
     		//load a properties file from class path, inside static method
     		
-    		prop.load(new FileInputStream( getPath()));
-			//prop.load(new FileInputStream( "/src/" ));
+//    		prop.load(new FileInputStream("credentials.properties"));
 			Connection_URL = prop.getProperty("DB_URL");
 			Username = prop.getProperty("Username");
 			Password = prop.getProperty("Passwd");
