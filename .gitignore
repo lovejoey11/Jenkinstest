@@ -1,5 +1,5 @@
 /build/
 /target/
 /Users/
-/src/config.properties
-/.README.md.html
+.README.md.html
+.DS_Store
